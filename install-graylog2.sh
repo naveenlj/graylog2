@@ -132,9 +132,5 @@ sed -ie "s/^application\.secret=.*/application\.secret=\"$(pwgen -N 1 -s 96)\"/g
 #Also, set a timezone in the /etc/graylog/web/web.conf file:
 
 timezone="Europe/London"
-Open /etc/sysconfig/graylog-web and adjust Java heap size:
 
-GRAYLOG_WEB_JAVA_OPTS="-Xms512M -Xmx1G"
-Start the service:
-
-# /etc/init.d/graylog-web start
+/etc/init.d/graylog-web start
