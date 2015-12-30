@@ -4,27 +4,21 @@ set -x
 
 # Adding EPEL Repo 
 
-echo "Creating $EPEL_REPO"
-cat << 'EOF' > ${EPEL_REPO}
-[epel]
+cat '[epel]
 name=Extra Packages for Enterprise Linux 6 - $basearch
 #baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
 failovermethod=priority
 enabled=1
-gpgcheck=0
-EOF | tee /etc/yum.repos.d/epel.repo
+gpgcheck=0' | tee /etc/yum.repos.d/epel.repo 
 
-  
 #Adding  mongodb Repo
 
-cat <<'EOF'
-[10gen]
+cat '[10gen]
 name=10gen Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
 gpgcheck=0
-enabled=1
-EOF | tee /etc/yum.repos.d/10gen.repo
+enabled=1' | tee /etc/yum.repos.d/10gen.repo
 
 # Installing mogodb
 
