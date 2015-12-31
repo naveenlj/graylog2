@@ -31,7 +31,7 @@ yum install -y mongo-10gen-server && /etc/init.d/mongod start
 
 which nc >/dev/null 2>&1
 if  [ $? != 0 ]; then
-  yum install nc >/dev/null 2>&1
+  yum -y install nc >/dev/null 2>&1
 fi
 
 while ! nc -vz localhost 27017; do sleep 1; done
