@@ -52,17 +52,6 @@ cd /opt
 
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.noarch.rpm
 
-wget http://packages.graylog2.org/releases/graylog2-server/graylog2-server-0.90.0.tgz
-
-tar -xvf graylog2-server-0.90.0.tgz
-
-
-# Create Symbolic Links
-
-echo "Creating SymLink Graylog2-server"
-
-ln -s graylog2-server-0.9*/ graylog2-server
-
 # Install elasticsearch and start
 
 echo "Installing elasticsearch"
@@ -77,8 +66,17 @@ service elasticsearch restart
 
 # Install graylog2-server
 
-
 echo "Installing graylog2-server"
+
+wget http://packages.graylog2.org/releases/graylog2-server/graylog2-server-0.90.0.tgz
+
+tar -xvf graylog2-server-0.90.0.tgz
+
+# Create Symbolic Links
+
+echo "Creating SymLink Graylog2-server"
+
+ln -s graylog2-server-0.9*/ graylog2-serve
 
 echo -n "Enter a password to use for the admin account to login to the Graylog2 webUI: "
 
