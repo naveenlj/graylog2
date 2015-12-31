@@ -107,7 +107,7 @@ sed -i -e 's|#elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.1.203:930
 sed -i 's|retention_strategy = delete|retention_strategy = close|' /etc/graylog2.conf
 
 # This setting is required as of v0.20.2 in /etc/graylog2.conf
-sed -i -e 's|#rest_transport_uri = http://192.168.1.1:12900/|rest_transport_uri = http://127.0.0.1:12900/|' /etc/graylog2.conf
+#sed -i -e 's|#rest_transport_uri = http://192.168.1.1:12900/|rest_transport_uri = http://127.0.0.1:12900/|' /etc/graylog2.conf
 
 # Start graylog2-server on bootup
 
