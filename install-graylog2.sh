@@ -2,6 +2,11 @@
 
 set -x 
 
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 # Adding EPEL Repo 
 
 echo '[epel]
@@ -23,6 +28,11 @@ enabled=1' | tee /etc/yum.repos.d/10gen.repo
 # Installing mogodb
 
 yum install -y mongo-10gen-server && /etc/init.d/mongod start
+
+which nc >/dev/null 2>&1
+if  [ $? != 0 ]; then
+  yum install nc >/dev/null 2>&1
+fi
 
 while ! nc -vz localhost 27017; do sleep 1; done
 
