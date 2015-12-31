@@ -54,19 +54,8 @@ wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearc
 
 wget http://packages.graylog2.org/releases/graylog2-server/graylog2-server-0.90.0.tgz
 
-wget http://packages.graylog2.org/releases/graylog2-web-interface/graylog2-web-interface-0.90.0.tgz
+tar -xvf graylog2-server-0.90.0.tgz
 
-# Extract files
-
-echo "Extracting Graylog2-Server and Graylog2-Web-Interface to /opt"
-
-  for f in *.*gz
-
-  do
-
-  tar zxf "$f"
-
-  done
 
 # Create Symbolic Links
 
@@ -87,6 +76,7 @@ sed -i -e 's|# cluster.name: elasticsearch|cluster.name: graylog2|' /etc/elastic
 service elasticsearch restart
 
 # Install graylog2-server
+
 
 echo "Installing graylog2-server"
 
