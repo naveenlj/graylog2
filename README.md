@@ -1,1 +1,2 @@
-# graylog2
+# Install and configure graylog2
+# Inprogress
